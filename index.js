@@ -19,7 +19,7 @@ for (let i = 0; i < COLORS.length; i++) {
     // neues div (leeres Element) erstellen
     const div = document.createElement("div")
 
-    // div ins html (Bildschirm) laden
+    // div ins html laden
     document.getElementById("game").appendChild(div)
 
     // definieren was auf Knopfdruck passiert

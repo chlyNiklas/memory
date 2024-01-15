@@ -1,13 +1,18 @@
 #game {
+    /*
+    Stelle die Memory-Karten in einem Raster dar.
+    */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1rem;
 }
 
 #game div {
+    /*
+    Mache die Memory-Karten Kartenartig
+    */
     min-width: 2rem;
     min-height: 10rem;
     background-color: rgb(225, 225, 225);
     border-radius: 0.5rem;
 }
-/* hier kannst du dein CSS schreiben */
