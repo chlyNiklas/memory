@@ -23,7 +23,7 @@ for (let i = 0; i < COLORS.length; i++) {
     document.getElementById("game").appendChild(div)
 
     // definieren was auf Knopfdruck passiert
-    div.onclick = (ev) => {
+    div.onclick = (event) => {
         // Code nur ausführen, wenn noch nicht 2 Karten umgedreht sind
         if (selected.length < 2) {
             // Farbe anzeigen

@@ -48,6 +48,7 @@ Kopiere nun folgenden Code in dein ```index.html```:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Memory</title>
 </head>
 <body>
@@ -55,23 +56,15 @@ Kopiere nun folgenden Code in dein ```index.html```:
     <h2 id="score">0 : 0</h2>
     <div id="game"></div>
 </body>
+<script src="./index.js"></script>
 </html>
 ```
 
-Wenn du dein ```index.html``` nun im browser öffnest, solltest du 
+Wenn du dein ```index.html``` nun im browser öffnest, solltest du eine Überschrift die sagt wer am Zug ist sehen, so wie der Punktestand.
 
 ### style.css
 
-Im ```style.css``` ist das Aussehen für das Spiel gespeichert. 
-
-Wikipedia definiert CSS so:
-
-> Cascading Style Sheets (für ‚gestufte Gestaltungsbögen‘; kurz: CSS) ist eine Stylesheet-Sprache für 
-> elektronische Dokumente und zusammen mit HTML und JavaScript eine der Kernsprachen des World Wide Webs. Sie ist ein sogenannter living standard 
-> ‚lebendiger Standard‘ und wird vom World Wide Web Consortium (W3C) beständig weiterentwickelt. Mit CSS werden Gestaltungsanweisungen erstellt, die vor 
-> allem zusammen mit den Auszeichnungssprachen HTML und XML (zum Beispiel bei SVG) eingesetzt werden.
-
-Im CSS kannst Regeln für das darstellen vom HTML machen - so genannte rules.
+Damit unser spiel auch gut aussieht, haben wir CSS. Mit CSS kannst du das Aussehen von deinem Spiel bestimmen. Dafür kannst du Regeln für das darstellen vom HTML machen - so genannte rules.
 Diese sind folgendermassen aufgebaut:
 
 ```
@@ -95,10 +88,9 @@ h1 {
 Dann sieht unser html so aus:
 
 <div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; box-shadow: 0px 0px 20px #000a;">
-    <h1 style="color: red;">Ich bin eine Überschrift!</h1>
-    <h2>Ich bin eine kleinere Überschrift!</h2>
-    <p>Ich bin ein Paragraph<p>
-    <button>Ich bin ein Knopf</button>
+    <h1 style="color: red">Spieler*in 1 ist am Zug.</h1>
+    <h2>0 : 0</h2>
+    <div></div>
 </div>
 
 Nun kannst du folgendes CSS in den ```style.css``` kopieren:
@@ -124,34 +116,9 @@ Nun kannst du folgendes CSS in den ```style.css``` kopieren:
 }
 ```
 
-Um das CSS anzuwenden, müssen wir das im HTML verlinken. Dafür kannst du im head tag von deinem ```index.html``` folgenden Tag einfügen:
-
-``` html
-<link rel="stylesheet" href="./style.css">
-```
-
-Dein ```index.html``` sollte nun so aussehen:
-
-``` html 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Memory</title>
-</head>
-<body>
-    <h1 id="player">Spieler*in 1 ist am Zug.</h1>
-    <h2 id="score">0 : 0</h2>
-    <div id="game"></div>
-</body>
-</html>
-```
-
 ### index.js
 
-Im ```index.js``` ist die Logik für das Spiel gespeichert. 
+Im ```index.js``` ist die Logik für das Spiel gespeichert. Wir benötigen es, damit die Memory-Karten gemischt werden oder um die Punkte an zu zeigen.
 
 Wikipedia definiert JavaScript so:
 
@@ -161,7 +128,7 @@ Wikipedia definiert JavaScript so:
 
 Nun kannst du folgenden Code in dein ```index.js``` einfügen:
 
-``` JavaScript
+``` JS
 const COLORS = ["maroon", "red", "purple", "fuchsia", "lime", "black", "yellow", "navy"]
 
 // in dieser Variable werden die umgedrehten Karten gespeichert
@@ -181,35 +148,51 @@ for (let i = 0; i < COLORS.length; i++) {
     // div ins html laden
     document.getElementById("game").appendChild(div)
 
-    // definieren was auf Knopfdruck passiert
-    div.onclick = (ev) => {
-        // Farbe anzeigen
-        div.style.backgroundColor = color
-
-        // zu den umgedrehten Karten hinzufügen
-        selected.push(div)
-
-        game()       
-    }
+    //Todo 00
 }
 
 // in dieser Funktion ist die Spiellogik
 function game() {
     if (selected.length === 2) {
         setTimeout(() => {
-            // T
+            // Todo 01
         }, 500)
     }
 }
+
+// Todo 02
 ```
 
-Damit das Javascript auch ausgeführt wird, müssen wir es noch im ```index.html``` verlinken.
-Füge dazu folgenden Script-Tag nach dem Body ein:
+Wenn du nun ```index.html``` in einem browser deiner Wahl öffnest, solltest du 16 Memory-Karten sehen.
+Falls das nicht der fall sein sollte, überprüfe ob alle Dokumente im selben Ordner
+sind und ob alle imports im HTML hast (für JavaScript und CSS).
 
-``` html
-<script src="./index.js"></script>
+## Das Spiel
+### Karten umdrehen
+
+Damit wir das Memory überhaupt spielen können, muss man die Karten umdrehen können. 
+Dafür müssen wir, wenn die Karte angeklickt wird, die richtige Farbe zu den Styles hinzufügen.
+
+Dies kannst den ```//ToDo 00``` Kommentar mit folgendem Code ersetzen:
+
+``` JS
+// definieren was auf Knopfdruck passiert
+div.onclick = (event) => {
+    //ToDo 00
+}
+```
+In diesem Codestück weist du der ```onclick``` eigenschaft eine Funktion zu.
+Da dieseFunktion keinen Namen braucht brauchen wir die sogenannte Lambda schreibweise.
+In den Klammern, definieren wir die Parameter (werte) die der Methode mitgegeben werden.
+In diesem fall ist das das Klickevent. Mit dem Pfeil weisen wir auf die Aktionen die Ausgeführt werden sollen. Diese sind inzwischen geschweiften Klammern.
+
+Innerhalb der geschweiften Klammern müssen wir nun die Hintergrundfarbe einstellen.
+Dafür hat das ```div``` die Property ```style```. Diese können wir mit einem Punkt
+wie gefolgt anwählen: ```div.style```. Um die hintergrundfarbe zu ändern müssen wir die
+Property ```backgroundColor``` der Property ```style``` verändern. Wir setzen sie auf die Farbe des ```div```'s mit folgendem Code:
+
+``` JS
+div.style.backgroundColor = color
 ```
 
-Wenn du nun ```index.html``` in einem browser deiner Wahl öffnest, solltest du 16 Memory-Karten sehen,
-die, wenn du sie anklickst, ihre Farbe zeigen. Falls das nicht der fall sein sollte, überprüfe ob alle Dokumente im selben Ordner
-sind und ob alle imports im HTML hast (für JavaScript und CSS).    
+Nun sollten sich die Memory-Karten, wenn du im Browser auf sie klickst, sich "umdrehen" bzw. jeweils ihre Farbe anzeigen.
