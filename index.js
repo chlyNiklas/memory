@@ -25,7 +25,7 @@ for (let i = 0; i < COLORS.length; i++) {
     // definieren was auf Knopfdruck passiert
     div.onclick = (event) => {
         // Code nur ausführen, wenn noch nicht 2 Karten umgedreht sind
-        if (selected.length < 2) {
+        if (selected.length < 2 && !selected.includes(div)) {
             // Farbe anzeigen
             div.style.backgroundColor = color
 
@@ -39,7 +39,9 @@ for (let i = 0; i < COLORS.length; i++) {
 
 // in dieser Funktion ist die Spiellogik
 function game() {
+    // schauen ob 2 Karten umgedreht sind 
     if (selected.length === 2) {
+    // eine halbe Sekunde warten
         setTimeout(() => {
             // überprüfen, ob es zwei gleiche Karten sind
             if (selected[0].style.backgroundColor === selected[1].style.backgroundColor) {

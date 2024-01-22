@@ -124,7 +124,7 @@ Wikipedia definiert JavaScript so:
 
 > JavaScript (kurz JS) ist eine Skriptsprache, die ursprünglich 1995 von Netscape für dynamisches HTML in Webbrowsern entwickelt 
 > wurde, um Benutzerinteraktionen auszuwerten, Inhalte zu verändern, nachzuladen oder zu generieren und so die Möglichkeiten von HTML 
-> zu erweitern. Heute wird JavaScript auch außerhalb von Browsern angewendet, etwa auf Servern und in Microcontrollern.
+> zu erweitern. Heute wird JavaScript auch außerhalb von Browsern angewendet, etwa auf Servern und in Mikrocontrollern.
 
 Nun kannst du folgenden Code in dein ```index.js``` einfügen:
 
@@ -151,14 +151,8 @@ for (let i = 0; i < COLORS.length; i++) {
     //Todo 00
 }
 
-// in dieser Funktion ist die Spiellogik
-function game() {
-    if (selected.length === 2) {
-        setTimeout(() => {
-            // Todo 01
-        }, 500)
-    }
-}
+// Todo 01
+
 
 // Todo 02
 ```
@@ -168,12 +162,12 @@ Falls das nicht der fall sein sollte, überprüfe ob alle Dokumente im selben Or
 sind und ob alle imports im HTML hast (für JavaScript und CSS).
 
 ## Das Spiel
-### Karten umdrehen
+### Karten aufdecken
 
 Damit wir das Memory überhaupt spielen können, muss man die Karten umdrehen können. 
 Dafür müssen wir, wenn die Karte angeklickt wird, die richtige Farbe zu den Styles hinzufügen.
 
-Dies kannst den ```//ToDo 00``` Kommentar mit folgendem Code ersetzen:
+Dies kannst den ```//ToDo 00``` im ```index.js``` Kommentar mit folgendem Code ersetzen:
 
 ``` JS
 // definieren was auf Knopfdruck passiert
@@ -184,7 +178,8 @@ div.onclick = (event) => {
 In diesem Codestück weist du der ```onclick``` eigenschaft eine Funktion zu.
 Da dieseFunktion keinen Namen braucht brauchen wir die sogenannte Lambda schreibweise.
 In den Klammern, definieren wir die Parameter (werte) die der Methode mitgegeben werden.
-In diesem fall ist das das Klickevent. Mit dem Pfeil weisen wir auf die Aktionen die Ausgeführt werden sollen. Diese sind inzwischen geschweiften Klammern.
+In diesem fall ist das das Klickevent. Mit dem Pfeil weisen wir auf die Aktionen die 
+Ausgeführt werden sollen. Diese sind inzwischen geschweiften Klammern.
 
 Innerhalb der geschweiften Klammern müssen wir nun die Hintergrundfarbe einstellen.
 Dafür hat das ```div``` die Property ```style```. Diese können wir mit einem Punkt
@@ -196,3 +191,71 @@ div.style.backgroundColor = color
 ```
 
 Nun sollten sich die Memory-Karten, wenn du im Browser auf sie klickst, sich "umdrehen" bzw. jeweils ihre Farbe anzeigen.
+
+## Karten verdecken
+
+Damit man nicht in einem Zug alle Karten aufdecken kann, müssen wir die Anzahl von
+Karten die man aufdecken darf auf 2 begrenzen. Dafür stellen wir den "Aufdeck-Code"
+in ein If-Statement. In diesem wird dann geprüft, ob weniger als 2 Karten umgedreht sind.
+Damit wir wissen wie viele Karten überhaupt umgedreht sind, fügen wir die Karte beim 
+Aufdecken dem ```selected``` array hinzu.
+
+Das machen wir mit folgendem Code:
+
+``` JavaScript
+if (selected.length < 2) {
+    // Farbe anzeigen
+    div.style.backgroundColor = color
+    // zu den umgedrehten Karten hinzufügen
+    selected.push(div)
+}
+```
+
+Wenn du nun probierst alle Karten aufzudecken, geht das nicht. Nach 2 Karten ist Fertig.
+Da mit sich die Karten wieder zudecken, braucht es noch ein wenig mehr Logik.
+Nämlich müssen wir wenn jeweils 2 Karten aufgedeckt sind, diese wieder zudecken.
+Damit man aber sieht welche Farbe die 2te Karte hat, brauchen wir eine kleine Verzögerung.
+
+Damit der Code leserlich bleibt, lagern wir die allgemeine Spiellogik in eine eigene Funktion
+aus. Ersetze ```ToDo 01``` mit folgendem Code:
+
+``` JavaScript
+// in dieser Funktion ist die Spiellogik
+function game() {
+    // schauen ob 2 Karten umgedreht sind 
+    if (selected.length === 2) {
+        // eine halbe Sekunde warten
+        setTimeout(() => {
+            // Todo 01
+        }, 500)
+    }
+}
+```
+
+Rufe nun die Funktion innerhalb vom ```onclick``` auf das sollte dann so aus sehen:
+
+``` JavaScript
+div.onclick = (event) => {
+    // Code nur ausführen, wenn noch nicht 2 Karten umgedreht sind
+    if (selected.length < 2 && !selected.includes(div)) {
+        // Farbe anzeigen
+        div.style.backgroundColor = color
+        // zu den umgedrehten Karten hinzufügen
+        selected.push(div)
+        game()
+    }
+}
+```
+
+Damit die Karten dann wirklich umgedreht werden, müssen wir innerhalb der ```game``` Funktion 
+beim ToDo die Farben der div's in der ```selected``` liste noch zurück setzten und diese dan
+anschliessend leeren. Das kannst du mit folgendem Code machen:
+
+``` JavaScript
+// Karten verdecken
+selected.forEach((div) => {
+    div.style = ""
+})
+// Variable leeren
+selected = []
+```
