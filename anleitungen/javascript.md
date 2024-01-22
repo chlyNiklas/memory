@@ -30,7 +30,9 @@
   - [Inkrement](#inkrement)
   - [Dekrement](#dekrement)
 - [Verzweigungen](#verzweigungen)
-- [Loops](#loops)
+- [Schleifen](#schleifen)
+  - [For-Schleife](#for-schleife)
+  - [ForEach-Schleife](#for-each-schleife)
 - [Funktionen](#funktionen)
 
 
@@ -249,7 +251,7 @@ for (let i = 0; i < 5; i++) {
 // The number is 4
 ```
 
-### ForEach-Schleife
+### For-Each-Schleife
 ```js
 const person = {"John", "Amie", "Leon"};
 
