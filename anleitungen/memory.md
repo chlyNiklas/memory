@@ -369,3 +369,11 @@ Nun musst du noch die ```updateScreen``` Funktion nach dem updaten der Punkte au
 
 Jetzt kannst du dein fertiges Memory ausprobieren.
 
+### Zusatz
+
+Wenn du noch Zeit hast kannst du noch weitere Features programmieren.
+Hier einige Vorschläge:
+
+ - Knopf um ein neues Spiel zu starten
+ - Bilder statt Farben
+ - Variable Anzahl von Spieler\*innen
