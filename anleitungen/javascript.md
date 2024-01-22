@@ -2,6 +2,8 @@
 
 **Inhalt**
 - [Kommentare](#kommentare)
+  - [Einzeiliger Kommentar](#einzeiliger-kommentar)
+  - [Mehrzeiliger Kommentar](#mehrzeiliger-kommentar)
 - [HTML Inhalte mit JavaScript ändern](#html-inhalte-mit-javascript-ändern)
 - [Output Optionen](#output-optionen)
 - [Variablen](#variablen)
@@ -28,11 +30,27 @@
   - [Inkrement](#inkrement)
   - [Dekrement](#dekrement)
 - [Verzweigungen](#verzweigungen)
-- [Loops](#loops)
+- [Schleifen](#schleifen)
+  - [For-Schleife](#for-schleife)
+  - [ForEach-Schleife](#for-each-schleife)
 - [Funktionen](#funktionen)
 
 
 ## Kommentare
+Nebst dem "normalen" Code, können auch Kommentare geschrieben werden. Es gibt ein- und mehrzeilige Kommentare. Code, welcher auskommentiert ist, wird nicht als Code behandelt und wird deshalb auch nicht durchlaufen. 
+
+### Einzeiliger Kommentar
+```js
+// Ich bin ein einzeiliger Kommentar
+```
+
+### Mehrzeiliger Kommentar
+```js
+/* 
+    Ich bin 
+    ein mehrzeiliger Kommentar
+*/
+```
 
 ## HTML Inhalte mit JavaScript ändern
 Mit der Methode getElementById() kann ein HTML-Element via seiner Id selektiert werden und dessen Inhalt verändert werden. 
@@ -112,7 +130,7 @@ cars.push(car4);
 cars.pop();
 
 // Das erste Element im bestehenden Array überschreiben
-cars[0] = "Sharan";
+cars[0] = "Audi";
 
 // Länge eines Arrays herausfinden und in der Variable size speichern
 let size = cars.length;
@@ -126,11 +144,11 @@ let z = "Die Erde";
 ```
 
 ### Vergleichsoperatoren
-Mit den Vergleichsoperatoren (<, <=, > >=) können zwei Variablen verglichen werden. 
+Mit den Vergleichsoperatoren (<, <=, > >=, ==, ===) können zwei Variablen verglichen werden. Der Operator == überprüft zwei Variabeln auf den selben Wert. Der Operator === überprüft zwei Variablen auf den selben Wert und den selben Datentypen. 
 ```js
 let x = 5;
 let y = 10;
-let isTrue = x > y; // isTrue ist false, da 5 kleiner als 10 ist
+let isTrue = x == y; // isTrue ist false, da der Wert 5 nicht gleich dem Wert 10 ist
 ```
 
 ### Addition
@@ -138,6 +156,11 @@ let isTrue = x > y; // isTrue ist false, da 5 kleiner als 10 ist
 let x = 5; // x den Wert 5 zuweisen
 let y = 2; // y den Wert 3 zuweisen
 let z = x + y; // z das Resultat (7) von x + y zuweisen
+
+// Spezialfall für strings: die beiden Variablen werden konkateniert (aneinandergehängt)
+let a = "Hello ";
+let b = "World";
+let c = a + b; // in c ist nun "Hello World" gespeichert
 ```
 
 ### Subtraktion
@@ -184,15 +207,71 @@ let z = x && y; // z das Resultat (true) von x und y zuweisen
 ```
 
 ### Inkrement
-
+Der Wert einer Variable kann inkrementiert (erhöht) werden mit dem Operator +=.
+```js
+let x = 5; // x den Wert 5 zuweisen
+let y = 2; // y den Wert 2 zuweisen
+let y += x; // y den Wert von y + x zuweisen
+```
 
 ### Dekrement
-
+Der Wert einer Variable kann dekrementiert (verkleinert) werden mit dem Operator -=.
+```js
+let x = 5; // x den Wert 5 zuweisen
+let y = 2; // y den Wert 2 zuweisen
+let y -= x; // y den Wert von y - x zuweisen
+```
 
 ## Verzweigungen
+Mit der If-Else-Verzweigung kann unterschieden werde, was je nach Bedingung passieren soll. 
+```js
+let x = 5; // x den Wert 5 zuweisen
 
+if (x == 5) { // Unter der Bedingung das x gleich 5 ist, wird x um 5 erhöht
+  x += 5;
+} else if (x == 0){ // Unter der Bedingung das x gleich 0 ist, wird x um 5 verkleinert
+  x -= 5;
+} else { // Unter der Bedingung das x gleich 1 ist, wird x um 1 erhöht
+  x += 1;
+}
+```
 
-## Loops
+## Schleifen
+### For-Schleife
+Ein for Loop wir so oft durchlaufen, bis die Variable i einen Wert angenommen hat, welcher grösser oder gleich 5 ist. Die Variable i ist zu Beginn 0 und wird nach jedem Durchlauf der Schleife mit dem Ausdruck i++ um eines inkrementiert (erhöht).
+```js
+for (let i = 0; i < 5; i++) {
+  text += "The number is " + i + "<br>";
+}
+// Output in der Konsole: 
+// The number is 0
+// The number is 1
+// The number is 2
+// The number is 3
+// The number is 4
+```
 
+### For-Each-Schleife
+```js
+const person = {"John", "Amie", "Leon"};
+
+for (let x in person) {
+  console.log(person[x]); // Der Name der Person, an der x-ten Stelle des Arrays wird in die Konsole geschrieben
+}
+
+// Output in der Konsole:
+// Jhon
+// Amie
+// Leon
+```
 
 ## Funktionen
+Code kann in eigene Funktionen ausgelagert werde, welche anschliessend aufgerufen werden können und meist einen Rückgabewert haben.
+```js
+// Funktion, um das Produkt von p1 und p2 zu berechnen
+function myFunction(p1, p2) {
+  return p1 * p2;
+}
+
+let result = myfunction(2, 4); // Funktion aufrufen und deren Resultat der Variable result zuweisen
+```
