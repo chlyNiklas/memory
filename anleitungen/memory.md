@@ -2,6 +2,19 @@
 
 Wir programmieren zusammen ein Memory.
 
+## Spielanleitung
+
+Memory wird mit einer geraden Anzahl an Karten gespielt.
+Diese haben jeweils eine farbige Vorderseite und eine graue Rückseite.
+Jeweils zwei passen zueinander.
+Alle Karten werden vermischt und umgedreht auf einem Tisch ausgebreitet, so dass man die
+Farben nicht sieht.
+Ein\*e Spieler\*in dreht zwei Kärtchen nacheinander um.
+Wenn die beiden zueinander passen, darf er/sie noch einmal 2 umdrehen.
+Wenn die Karten aber nicht zusammen passen ist die nächste person dran.
+
+Gewonnen hat, wer am meisten Paare gefunden hat.
+
 ## Vorbereitung
 
 Erstelle auf dem Desktop (oder einem Ordner deiner Wahl) ein Order namens: "memory"
@@ -259,3 +272,100 @@ selected.forEach((div) => {
 // Variable leeren
 selected = []
 ```
+
+### Korrekte Paare aus dem Spiel entfernen
+
+Um zu erkenn en ob zwei gleiche Karten aufgedeckt wurden, müssen wir nur überprüfen,
+ob deren Farbe die selbe ist. Das können wir ganz einfach mit einem If-Statement machen.
+Wir schauen ob die Hintergrundfarbe des div's an position 0 des ```selected``` Arrays die
+selbe ist wie die des div's an position 1. das kannst du mit folgendem If-Statement machen:
+
+``` JavaScript
+// überprüfen, ob es zwei gleiche Karten sind
+if (selected[0].style.backgroundColor === selected[1].style.backgroundColor) {
+
+} else {
+
+}
+```
+
+Verschiebe nun das umdrehen der Karten in den ```else``` Teil des If-Statements.
+Im ```if``` Teil, kannst du nun den code fürs entfernen einfügen:
+
+``` JavaScript
+// Karten deaktivieren
+.forEach((div) => {
+    // hintergrund Farbe der Karte auf transparent
+    div.style.backgroundColor = "transparent"
+    // onclick entfernen
+    div.onclick = null;
+})
+```
+
+Nun sollten korrekte paare verschwinden. Probier's doch mal aus!
+
+
+### Punkte zählen
+
+Damit wir die Punkte zählen können, müssen wir 3 Dinge speichern: die Punkte von Player 1,
+die Punkte von Player 2 und wer von beiden am Zug ist. Das machen wir mit folgenden Variablen.
+
+``` JavaScript
+let isPlayerOne = true;
+let pointsPlayerOne = 0;
+let pointsPlayerTwo = 0;
+```
+
+Diese kannst du am anfangs des JavaScript files initialisieren.  
+
+Jedes Mal, wenn nun ein Player 2 gleiche Karten aufdeckt, rechnen wir die entsprechende
+Variable + 1:
+
+``` JavaScript
+if (isPlayerOne) {
+    pointsPlayerOne += 1
+} else {
+    pointsPlayerTwo += 1
+}
+```
+
+Nun müssen wir jeweils noch den Player wechseln. Das machen wir in dem wir ```isPlayerOne```
+auf das Gegenteil von ```isPlayerOne``` setzen: 
+
+``` JavaScript
+// Player wechseln
+isPlayerOne = !isPlayerOne
+```
+
+Das machen wir jedes mal wenn ein Player 2 unterschiedliche Karten aufgedeckt hat.
+
+### Display aktualisieren
+
+Damit wir sehen wie der punktestand ist und auch wer am Zug ist, müssen wir das HTML mit den
+richtigen Daten aktualisieren. Das machen wir in einer eigenen Funktion, damit
+man diese immer wen etwas geändert hat aufrufen kann.
+Im HTML sind jeweils schon Überschrifts-Tag's für den aktuellen
+Player und den score vorhanden. Diese kannst du mit deren id selektieren. 
+Um den richtigen spieler anzuzeigen, kannst du eine neue Variable initialisieren und
+mit Hilfe von einem If-Statement den korrekten Player hineinschreiben. Hier der code:
+
+``` JavaScript
+function updateScreen() {
+    let player = ""
+
+    if (isPlayerOne) {
+        player = "1"
+    } else {
+        player = "2"
+    }
+
+    // Elemente updaten
+    document.getElementById("player").innerText = "Spieler*in " + player + " ist am Zug."
+    document.getElementById("score").innerText = pointsPlayerOne + ":" + pointsPlayerTwo
+}
+```
+
+Nun musst du noch die ```updateScreen``` Funktion nach dem updaten der Punkte aufrufen.
+
+Jetzt kannst du dein fertiges Memory ausprobieren.
+

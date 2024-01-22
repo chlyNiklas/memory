@@ -1,6 +1,5 @@
 const COLORS = ["maroon", "red", "purple", "fuchsia", "lime", "black", "yellow", "navy"]
 
-// boolean erklären
 let isPlayerOne = true;
 let pointsPlayerOne = 0;
 let pointsPlayerTwo = 0;
@@ -47,14 +46,14 @@ function game() {
             if (selected[0].style.backgroundColor === selected[1].style.backgroundColor) {
                 // Karten deaktivieren
                 selected.forEach((div) => {
-                    div.style.backgroundColor = "#fff"
+                    div.style.backgroundColor = "transparent"
                     div.onclick = null;
                 })
                 // Punkte hinzufügen
                 if (isPlayerOne) {
-                    pointsPlayerOne++
+                    pointsPlayerOne += 1
                 } else {
-                    pointsPlayerTwo++
+                    pointsPlayerTwo += 1
                 }
             } else {
                 // Karten verdecken
@@ -73,6 +72,15 @@ function game() {
     }
 }
 function updateScreen() {
-    document.getElementById("player").innerText = `Spieler*in ${isPlayerOne ? "1" : "2"} ist am Zug.`
-    document.getElementById("score").innerText = `${pointsPlayerOne} : ${pointsPlayerTwo}`
+    let player = ""
+
+    if (isPlayerOne) {
+        player = "1"
+    } else {
+        player = "2"
+    }
+
+    // Elemente updaten
+    document.getElementById("player").innerText = "Spieler*in " + player + " ist am Zug."
+    document.getElementById("score").innerText = pointsPlayerOne + ":" + pointsPlayerTwo
 }
