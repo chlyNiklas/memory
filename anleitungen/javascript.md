@@ -1,39 +1,40 @@
 # JavaScript
 
 **Inhalt**
-- [Kommentare](#kommentare)
-  - [Einzeiliger Kommentar](#einzeiliger-kommentar)
-  - [Mehrzeiliger Kommentar](#mehrzeiliger-kommentar)
-- [HTML Inhalte mit JavaScript ändern](#html-inhalte-mit-javascript-ändern)
-- [Output Optionen](#output-optionen)
-- [Variablen](#variablen)
-  - [Was sind Variablen?](#was-sind-variablen?)
-  - [Deklaration](#deklaration)
-  - [Initialisierung](#initialisierung)
-  - [Deklaration & Initialisierung](#deklaration--initialisierung)
-- [Datentypen](#datentypen)
-  - [Number](#number)
-  - [String](#string)
-  - [Boolean](#boolean)
-- [Arrays](#arrays)
-  - [Verwendung eines Arrays](#verwendung-eines-arrays)
-- [Operatoren](#operatoren)
-  - [Zuweisungsoperator](#zuweisungsoperator)
-  - [Vergleichsoperatoren](#vergleichsoperatoren)
-  - [Addition](#addition)
-  - [Subtraktion](#subtraktion)
-  - [Multiplikation](#multiplikation)
-  - [Division](#division)
-  - [Negation](#negation)
-  - [Und](#und)
-  - [Oder](#oder)
-  - [Inkrement](#inkrement)
-  - [Dekrement](#dekrement)
-- [Verzweigungen](#verzweigungen)
-- [Schleifen](#schleifen)
-  - [For-Schleife](#for-schleife)
-  - [ForEach-Schleife](#for-each-schleife)
-- [Funktionen](#funktionen)
+- [JavaScript](#javascript)
+  - [Kommentare](#kommentare)
+    - [Einzeiliger Kommentar](#einzeiliger-kommentar)
+    - [Mehrzeiliger Kommentar](#mehrzeiliger-kommentar)
+  - [HTML Inhalte mit JavaScript ändern](#html-inhalte-mit-javascript-ändern)
+  - [Output Optionen](#output-optionen)
+  - [Variablen](#variablen)
+    - [Was sind Variablen?](#was-sind-variablen)
+    - [Deklaration](#deklaration)
+    - [Initialisierung](#initialisierung)
+    - [Deklaration \& Initialisierung](#deklaration--initialisierung)
+  - [Datentypen](#datentypen)
+    - [Number](#number)
+    - [String](#string)
+    - [Boolean](#boolean)
+  - [Arrays](#arrays)
+    - [Verwendung eines Arrays](#verwendung-eines-arrays)
+  - [Operatoren](#operatoren)
+    - [Zuweisungsoperator](#zuweisungsoperator)
+    - [Vergleichsoperatoren](#vergleichsoperatoren)
+    - [Addition](#addition)
+    - [Subtraktion](#subtraktion)
+    - [Multiplikation](#multiplikation)
+    - [Division](#division)
+    - [Negation](#negation)
+    - [Und](#und)
+    - [Oder](#oder)
+    - [Inkrementieren](#inkrementieren)
+    - [Dekrementieren](#dekrementieren)
+  - [Verzweigungen](#verzweigungen)
+  - [Schleifen](#schleifen)
+    - [For-Schleife](#for-schleife)
+    - [For-Each-Schleife](#for-each-schleife)
+  - [Funktionen](#funktionen)
 
 
 ## Kommentare
@@ -203,10 +204,10 @@ Beim "||" Operator ist das Ergebnis true, wenn mindestens eine der beiden Variab
 ```js
 let x = true; // x den Wert true zuweisen
 let y = false; // y den Wert false zuweisen
-let z = x && y; // z das Resultat (true) von x und y zuweisen
+let z = x || y; // z das Resultat (true) von x und y zuweisen
 ```
 
-### Inkrement
+### Inkrementieren
 Der Wert einer Variable kann inkrementiert (erhöht) werden mit dem Operator +=.
 ```js
 let x = 5; // x den Wert 5 zuweisen
@@ -214,7 +215,7 @@ let y = 2; // y den Wert 2 zuweisen
 let y += x; // y den Wert von y + x zuweisen
 ```
 
-### Dekrement
+### Dekrementieren
 Der Wert einer Variable kann dekrementiert (verkleinert) werden mit dem Operator -=.
 ```js
 let x = 5; // x den Wert 5 zuweisen
@@ -223,7 +224,7 @@ let y -= x; // y den Wert von y - x zuweisen
 ```
 
 ## Verzweigungen
-Mit der If-Else-Verzweigung kann unterschieden werde, was je nach Bedingung passieren soll. 
+Mit der If-Else-Verzweigung kann unterschieden werden, was je nach Bedingung passieren soll. 
 ```js
 let x = 5; // x den Wert 5 zuweisen
 
@@ -241,7 +242,7 @@ if (x == 5) { // Unter der Bedingung das x gleich 5 ist, wird x um 5 erhöht
 Ein for Loop wir so oft durchlaufen, bis die Variable i einen Wert angenommen hat, welcher grösser oder gleich 5 ist. Die Variable i ist zu Beginn 0 und wird nach jedem Durchlauf der Schleife mit dem Ausdruck i++ um eines inkrementiert (erhöht).
 ```js
 for (let i = 0; i < 5; i++) {
-  text += "The number is " + i + "<br>";
+  console.log(i)
 }
 // Output in der Konsole: 
 // The number is 0
@@ -253,14 +254,14 @@ for (let i = 0; i < 5; i++) {
 
 ### For-Each-Schleife
 ```js
-const person = {"John", "Amie", "Leon"};
+const persons = ["John", "Amie", "Leon"];
 
-for (let x in person) {
-  console.log(person[x]); // Der Name der Person, an der x-ten Stelle des Arrays wird in die Konsole geschrieben
-}
+persons.forEach((person)=> {
+  console.log(person); // Der Name der Person, an der x-ten Stelle des Arrays wird in die Konsole geschrieben
+})
 
 // Output in der Konsole:
-// Jhon
+// John
 // Amie
 // Leon
 ```
