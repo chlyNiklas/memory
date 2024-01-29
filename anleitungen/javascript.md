@@ -274,5 +274,5 @@ function myFunction(p1, p2) {
   return p1 * p2;
 }
 
-let result = myfunction(2, 4); // Funktion aufrufen und deren Resultat der Variable result zuweisen
+let result = myfunction(2, 4); // Funktion aufrufen und deren Resultat der Variable result zuweisen.
 ```
