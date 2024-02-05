@@ -189,7 +189,7 @@ div.onclick = (event) => {
 }
 ```
 In diesem Codestück weist du der ```onclick``` eigenschaft eine Funktion zu.
-Da dieseFunktion keinen Namen braucht brauchen wir die sogenannte Lambda schreibweise.
+Da dieseFunktion keinen Namen braucht brauchen wir die sogenannte Lambda-Schreibweise.
 In den Klammern, definieren wir die Parameter (werte) die der Methode mitgegeben werden.
 In diesem fall ist das das Klickevent. Mit dem Pfeil weisen wir auf die Aktionen die 
 Ausgeführt werden sollen. Diese sind inzwischen geschweiften Klammern.
@@ -277,6 +277,7 @@ selected = []
 
 Um zu erkenn en ob zwei gleiche Karten aufgedeckt wurden, müssen wir nur überprüfen,
 ob deren Farbe die selbe ist. Das können wir ganz einfach mit einem If-Statement machen.
+Dieses setzen wir um das verdecken der Karten.
 Wir schauen ob die Hintergrundfarbe des div's an position 0 des ```selected``` Arrays die
 selbe ist wie die des div's an position 1. das kannst du mit folgendem If-Statement machen:
 
@@ -374,6 +375,6 @@ Jetzt kannst du dein fertiges Memory ausprobieren.
 Wenn du noch Zeit hast kannst du noch weitere Features programmieren.
 Hier einige Vorschläge:
 
- - Knopf um ein neues Spiel zu starten
+ - Einen Knopf um ein neues Spiel zu starten
  - Bilder statt Farben
  - Variable Anzahl von Spieler\*innen
