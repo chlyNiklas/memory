@@ -536,7 +536,7 @@ in ein If-Statement. In diesem wird dann geprüft, ob weniger als 2 Karten umged
 Damit wir wissen wie viele Karten überhaupt umgedreht sind, fügen wir die Karte beim<br>
 Aufdecken dem <code>selected</code> array hinzu.</p>
 <p>Das machen wir mit folgendem Code:</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">if</span> (selected.length &lt; <span class="hljs-number">2</span>) {
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span> (selected.length &lt; <span class="hljs-number">2</span>  &amp;&amp; !selected.includes(div)) {
     <span class="hljs-comment">// Farbe anzeigen</span>
     div.style.backgroundColor = color
     <span class="hljs-comment">// zu den umgedrehten Karten hinzufügen</span>

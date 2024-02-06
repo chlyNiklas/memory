@@ -37,7 +37,7 @@ function restart() {
 
         // definieren was auf Knopfdruck passiert
         div.onclick = (event) => {
-            if (selected.length < 2) {
+            if (selected.length < 2  && !selected.includes(div)) {
                 div.style.backgroundColor = `#${imageId}0`
                 selected.push(div);
                 div.innerHTML = `<img src="https://picsum.photos/seed/${imageId}/200/200">`

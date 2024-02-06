@@ -216,7 +216,7 @@ Aufdecken dem ```selected``` array hinzu.
 Das machen wir mit folgendem Code:
 
 ``` JavaScript
-if (selected.length < 2) {
+if (selected.length < 2  && !selected.includes(div)) {
     // Farbe anzeigen
     div.style.backgroundColor = color
     // zu den umgedrehten Karten hinzufügen
