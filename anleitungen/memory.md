@@ -378,3 +378,17 @@ Hier einige Vorschläge:
  - Einen Knopf um ein neues Spiel zu starten
  - Bilder statt Farben
  - Variable Anzahl von Spieler\*innen
+
+``` JavaScript
+let playerPointer = 0
+let playersPoints = [0, 0]
+
+function nextPlayer() {
+    console.log(playersPoints.length)
+    playerPointer += 1
+    if (playersPoints.length <= playerPointer) {
+        playerPointer = 0
+    }
+}
+
+```

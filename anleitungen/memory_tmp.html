@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>memory.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///workspaces/memory/R%3A%5C2.Travail%5C1.Enseignement%5CCours%5C_1.Outils%5C2.Developpement%5C1.SCSS%5Cmain.css" type="text/css"><link rel="stylesheet" href="file:///workspaces/memory/D%3A%5Crdaros%5CCours%5C_1.Outils%5C2.Developpement%5C1.SCSS%5Cmain.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="memory">Memory</h1>
+<p>Wir programmieren zusammen ein Memory.</p>
+<h2 id="spielanleitung">Spielanleitung</h2>
+<p>Memory wird mit einer geraden Anzahl an Karten gespielt.<br>
+Diese haben jeweils eine farbige Vorderseite und eine graue Rückseite.<br>
+Jeweils zwei passen zueinander.<br>
+Alle Karten werden vermischt und umgedreht auf einem Tisch ausgebreitet, so dass man die<br>
+Farben nicht sieht.<br>
+Ein*e Spieler*in dreht zwei Kärtchen nacheinander um.<br>
+Wenn die beiden zueinander passen, darf er/sie noch einmal 2 umdrehen.<br>
+Wenn die Karten aber nicht zusammen passen ist die nächste person dran.</p>
+<p>Gewonnen hat, wer am meisten Paare gefunden hat.</p>
+<h2 id="vorbereitung">Vorbereitung</h2>
+<p>Erstelle auf dem Desktop (oder einem Ordner deiner Wahl) ein Order namens: &quot;memory&quot;<br>
+In diesem erstellst du folgende Dateien:</p>
+<ul>
+<li>index.html</li>
+<li>index.js</li>
+<li>style.css</li>
+</ul>
+<h3 id="indexhtml">index.html</h3>
+<p>Im <code>index.html</code> ist die Struktur unseres Spieles gespeichert.</p>
+<p>Wikipedia definiert HTML so:</p>
+<blockquote>
+<p>Die Hypertext Markup Language (HTML) ist eine textbasierte Auszeichnungssprache zur Strukturierung elektronischer Dokumente<br>
+wie Texte mit Hyperlinks, Bildern und anderen Inhalten. HTML-Dokumente sind die Grundlage des World Wide Web und<br>
+werden von Webbrowsern dargestellt.</p>
+</blockquote>
+<p>Die Elemente die im Browser angezeigt werden sollen, werden in den sogenannten Tags definiert.<br>
+Tags welche Inhalt haben können wie z.B. Knöpfe, Überschriften oder Paragraphen, werden geöffnet (<code>&lt;tag&gt;</code>) und geschlossen (<code>&lt;/tag&gt;</code>).</p>
+<p>Beispiel:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Ich bin eine Überschrift!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Ich bin eine kleinere Überschrift!<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Ich bin ein Paragraph<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Ich bin ein Knopf<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div></code></pre>
+<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; box-shadow: 0px 0px 20px #000a;">
+    <h1>Ich bin eine &#xDC;berschrift!</h1>
+    <h2>Ich bin eine kleinere &#xDC;berschrift!</h2>
+    <p>Ich bin ein Paragraph</p><p>
+    <button>Ich bin ein Knopf</button>
+</p></div>
+<p>Kopiere nun folgenden Code in dein <code>index.html</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"./style.css"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Memory<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"player"</span>&gt;</span>Spieler*in 1 ist am Zug.<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"score"</span>&gt;</span>0 : 0<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"game"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./index.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<p>Wenn du dein <code>index.html</code> nun im browser öffnest, solltest du eine Überschrift die sagt wer am Zug ist sehen, so wie der Punktestand.</p>
+<h3 id="stylecss">style.css</h3>
+<p>Damit unser spiel auch gut aussieht, haben wir CSS. Mit CSS kannst du das Aussehen von deinem Spiel bestimmen. Dafür kannst du Regeln für das darstellen vom HTML machen - so genannte rules.<br>
+Diese sind folgendermassen aufgebaut:</p>
+<pre class="hljs"><code><div>[Selektor] {
+    [Eigenschaft]: [Wert];
+    [Eigenschaft]: [Wert];
+    ...
+}
+</div></code></pre>
+<p>Ein Selektor wäre z.B <code>h1</code>. Damit würde dann die Regel auf alle grossen Überschriften zutreffen.<br>
+Ein Beispiel fü eine Eigenschaft ist die Farbe: <code>color: red</code></p>
+<p>Also wenn wir alle grossen Überschriften rot haben wollen müssen wir folgende Regel schreiben:</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">h1</span> {
+    <span class="hljs-attribute">color</span>: red;
+}
+</div></code></pre>
+<p>Dann sieht unser html so aus:</p>
+<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; box-shadow: 0px 0px 20px #000a;">
+    <h1 style="color: red">Spieler*in 1 ist am Zug.</h1>
+    <h2>0 : 0</h2>
+    <div></div>
+</div>
+<p>Nun kannst du folgendes CSS in den <code>style.css</code> kopieren:</p>
+<pre class="hljs"><code><div><span class="hljs-selector-id">#game</span> {
+    <span class="hljs-comment">/*
+    Stelle die Memory-Karten in einem Raster dar.
+    */</span>
+    <span class="hljs-attribute">display</span>: grid;
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">1</span>fr <span class="hljs-number">1</span>fr <span class="hljs-number">1</span>fr <span class="hljs-number">1</span>fr;
+    <span class="hljs-attribute">gap</span>: <span class="hljs-number">1rem</span>;
+}
+
+<span class="hljs-selector-id">#game</span> <span class="hljs-selector-tag">div</span> {
+    <span class="hljs-comment">/*
+    Mache die Memory-Karten Kartenartig
+    */</span>
+    <span class="hljs-attribute">min-width</span>: <span class="hljs-number">2rem</span>;
+    <span class="hljs-attribute">min-height</span>: <span class="hljs-number">10rem</span>;
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-number">225</span>, <span class="hljs-number">225</span>, <span class="hljs-number">225</span>);
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0.5rem</span>;
+}
+</div></code></pre>
+<h3 id="indexjs">index.js</h3>
+<p>Im <code>index.js</code> ist die Logik für das Spiel gespeichert. Wir benötigen es, damit die Memory-Karten gemischt werden oder um die Punkte an zu zeigen.</p>
+<p>Wikipedia definiert JavaScript so:</p>
+<blockquote>
+<p>JavaScript (kurz JS) ist eine Skriptsprache, die ursprünglich 1995 von Netscape für dynamisches HTML in Webbrowsern entwickelt<br>
+wurde, um Benutzerinteraktionen auszuwerten, Inhalte zu verändern, nachzuladen oder zu generieren und so die Möglichkeiten von HTML<br>
+zu erweitern. Heute wird JavaScript auch außerhalb von Browsern angewendet, etwa auf Servern und in Mikrocontrollern.</p>
+</blockquote>
+<p>Nun kannst du folgenden Code in dein <code>index.js</code> einfügen:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> COLORS = [<span class="hljs-string">"maroon"</span>, <span class="hljs-string">"red"</span>, <span class="hljs-string">"purple"</span>, <span class="hljs-string">"fuchsia"</span>, <span class="hljs-string">"lime"</span>, <span class="hljs-string">"black"</span>, <span class="hljs-string">"yellow"</span>, <span class="hljs-string">"navy"</span>]
+
+<span class="hljs-comment">// in dieser Variable werden die umgedrehten Karten gespeichert</span>
+<span class="hljs-keyword">let</span> selected = []
+
+<span class="hljs-comment">// alle Farben noch einmal hinzufügen</span>
+COLORS.push(...COLORS)
+<span class="hljs-comment">// Farben mischen</span>
+COLORS.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> <span class="hljs-number">0.5</span> - <span class="hljs-built_in">Math</span>.random())
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; COLORS.length; i++) {
+    <span class="hljs-keyword">const</span> color = COLORS[i];
+
+    <span class="hljs-comment">// neues div (leeres Element) erstellen</span>
+    <span class="hljs-keyword">const</span> div = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>)
+
+    <span class="hljs-comment">// div ins html laden</span>
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"game"</span>).appendChild(div)
+
+    <span class="hljs-comment">//Todo 00</span>
+}
+
+<span class="hljs-comment">// Todo 01</span>
+
+
+<span class="hljs-comment">// Todo 02</span>
+</div></code></pre>
+<p>Wenn du nun <code>index.html</code> in einem browser deiner Wahl öffnest, solltest du 16 Memory-Karten sehen.<br>
+Falls das nicht der fall sein sollte, überprüfe ob alle Dokumente im selben Ordner<br>
+sind und ob alle imports im HTML hast (für JavaScript und CSS).</p>
+<h2 id="das-spiel">Das Spiel</h2>
+<h3 id="karten-aufdecken">Karten aufdecken</h3>
+<p>Damit wir das Memory überhaupt spielen können, muss man die Karten umdrehen können.<br>
+Dafür müssen wir, wenn die Karte angeklickt wird, die richtige Farbe zu den Styles hinzufügen.</p>
+<p>Dies kannst den <code>//ToDo 00</code> im <code>index.js</code> Kommentar mit folgendem Code ersetzen:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// definieren was auf Knopfdruck passiert</span>
+div.onclick = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> {
+    <span class="hljs-comment">//ToDo 00</span>
+}
+</div></code></pre>
+<p>In diesem Codestück weist du der <code>onclick</code> eigenschaft eine Funktion zu.<br>
+Da dieseFunktion keinen Namen braucht brauchen wir die sogenannte Lambda-Schreibweise.<br>
+In den Klammern, definieren wir die Parameter (werte) die der Methode mitgegeben werden.<br>
+In diesem fall ist das das Klickevent. Mit dem Pfeil weisen wir auf die Aktionen die<br>
+Ausgeführt werden sollen. Diese sind inzwischen geschweiften Klammern.</p>
+<p>Innerhalb der geschweiften Klammern müssen wir nun die Hintergrundfarbe einstellen.<br>
+Dafür hat das <code>div</code> die Property <code>style</code>. Diese können wir mit einem Punkt<br>
+wie gefolgt anwählen: <code>div.style</code>. Um die hintergrundfarbe zu ändern müssen wir die<br>
+Property <code>backgroundColor</code> der Property <code>style</code> verändern. Wir setzen sie auf die Farbe des <code>div</code>'s mit folgendem Code:</p>
+<pre class="hljs"><code><div>div.style.backgroundColor = color
+</div></code></pre>
+<p>Nun sollten sich die Memory-Karten, wenn du im Browser auf sie klickst, sich &quot;umdrehen&quot; bzw. jeweils ihre Farbe anzeigen.</p>
+<h2 id="karten-verdecken">Karten verdecken</h2>
+<p>Damit man nicht in einem Zug alle Karten aufdecken kann, müssen wir die Anzahl von<br>
+Karten die man aufdecken darf auf 2 begrenzen. Dafür stellen wir den &quot;Aufdeck-Code&quot;<br>
+in ein If-Statement. In diesem wird dann geprüft, ob weniger als 2 Karten umgedreht sind.<br>
+Damit wir wissen wie viele Karten überhaupt umgedreht sind, fügen wir die Karte beim<br>
+Aufdecken dem <code>selected</code> array hinzu.</p>
+<p>Das machen wir mit folgendem Code:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span> (selected.length &lt; <span class="hljs-number">2</span>) {
+    <span class="hljs-comment">// Farbe anzeigen</span>
+    div.style.backgroundColor = color
+    <span class="hljs-comment">// zu den umgedrehten Karten hinzufügen</span>
+    selected.push(div)
+}
+</div></code></pre>
+<p>Wenn du nun probierst alle Karten aufzudecken, geht das nicht. Nach 2 Karten ist Fertig.<br>
+Da mit sich die Karten wieder zudecken, braucht es noch ein wenig mehr Logik.<br>
+Nämlich müssen wir wenn jeweils 2 Karten aufgedeckt sind, diese wieder zudecken.<br>
+Damit man aber sieht welche Farbe die 2te Karte hat, brauchen wir eine kleine Verzögerung.</p>
+<p>Damit der Code leserlich bleibt, lagern wir die allgemeine Spiellogik in eine eigene Funktion<br>
+aus. Ersetze <code>ToDo 01</code> mit folgendem Code:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// in dieser Funktion ist die Spiellogik</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">game</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// schauen ob 2 Karten umgedreht sind </span>
+    <span class="hljs-keyword">if</span> (selected.length === <span class="hljs-number">2</span>) {
+        <span class="hljs-comment">// eine halbe Sekunde warten</span>
+        setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+            <span class="hljs-comment">// Todo 01</span>
+        }, <span class="hljs-number">500</span>)
+    }
+}
+</div></code></pre>
+<p>Rufe nun die Funktion innerhalb vom <code>onclick</code> auf das sollte dann so aus sehen:</p>
+<pre class="hljs"><code><div>div.onclick = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> {
+    <span class="hljs-comment">// Code nur ausführen, wenn noch nicht 2 Karten umgedreht sind</span>
+    <span class="hljs-keyword">if</span> (selected.length &lt; <span class="hljs-number">2</span> &amp;&amp; !selected.includes(div)) {
+        <span class="hljs-comment">// Farbe anzeigen</span>
+        div.style.backgroundColor = color
+        <span class="hljs-comment">// zu den umgedrehten Karten hinzufügen</span>
+        selected.push(div)
+        game()
+    }
+}
+</div></code></pre>
+<p>Damit die Karten dann wirklich umgedreht werden, müssen wir innerhalb der <code>game</code> Funktion<br>
+beim ToDo die Farben der div's in der <code>selected</code> liste noch zurück setzten und diese dan<br>
+anschliessend leeren. Das kannst du mit folgendem Code machen:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// Karten verdecken</span>
+selected.forEach(<span class="hljs-function">(<span class="hljs-params">div</span>) =&gt;</span> {
+    div.style = <span class="hljs-string">""</span>
+})
+<span class="hljs-comment">// Variable leeren</span>
+selected = []
+</div></code></pre>
+<h3 id="korrekte-paare-aus-dem-spiel-entfernen">Korrekte Paare aus dem Spiel entfernen</h3>
+<p>Um zu erkenn en ob zwei gleiche Karten aufgedeckt wurden, müssen wir nur überprüfen,<br>
+ob deren Farbe die selbe ist. Das können wir ganz einfach mit einem If-Statement machen.<br>
+Dieses setzen wir um das verdecken der Karten.<br>
+Wir schauen ob die Hintergrundfarbe des div's an position 0 des <code>selected</code> Arrays die<br>
+selbe ist wie die des div's an position 1. das kannst du mit folgendem If-Statement machen:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// überprüfen, ob es zwei gleiche Karten sind</span>
+<span class="hljs-keyword">if</span> (selected[<span class="hljs-number">0</span>].style.backgroundColor === selected[<span class="hljs-number">1</span>].style.backgroundColor) {
+
+} <span class="hljs-keyword">else</span> {
+
+}
+</div></code></pre>
+<p>Verschiebe nun das umdrehen der Karten in den <code>else</code> Teil des If-Statements.<br>
+Im <code>if</code> Teil, kannst du nun den code fürs entfernen einfügen:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// Karten deaktivieren</span>
+.forEach(<span class="hljs-function">(<span class="hljs-params">div</span>) =&gt;</span> {
+    <span class="hljs-comment">// hintergrund Farbe der Karte auf transparent</span>
+    div.style.backgroundColor = <span class="hljs-string">"transparent"</span>
+    <span class="hljs-comment">// onclick entfernen</span>
+    div.onclick = <span class="hljs-literal">null</span>;
+})
+</div></code></pre>
+<p>Nun sollten korrekte paare verschwinden. Probier's doch mal aus!</p>
+<h3 id="punkte-z%C3%A4hlen">Punkte zählen</h3>
+<p>Damit wir die Punkte zählen können, müssen wir 3 Dinge speichern: die Punkte von Player 1,<br>
+die Punkte von Player 2 und wer von beiden am Zug ist. Das machen wir mit folgenden Variablen.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> isPlayerOne = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">let</span> pointsPlayerOne = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">let</span> pointsPlayerTwo = <span class="hljs-number">0</span>;
+</div></code></pre>
+<p>Diese kannst du am anfangs des JavaScript files initialisieren.</p>
+<p>Jedes Mal, wenn nun ein Player 2 gleiche Karten aufdeckt, rechnen wir die entsprechende<br>
+Variable + 1:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span> (isPlayerOne) {
+    pointsPlayerOne += <span class="hljs-number">1</span>
+} <span class="hljs-keyword">else</span> {
+    pointsPlayerTwo += <span class="hljs-number">1</span>
+}
+</div></code></pre>
+<p>Nun müssen wir jeweils noch den Player wechseln. Das machen wir in dem wir <code>isPlayerOne</code><br>
+auf das Gegenteil von <code>isPlayerOne</code> setzen:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// Player wechseln</span>
+isPlayerOne = !isPlayerOne
+</div></code></pre>
+<p>Das machen wir jedes mal wenn ein Player 2 unterschiedliche Karten aufgedeckt hat.</p>
+<h3 id="display-aktualisieren">Display aktualisieren</h3>
+<p>Damit wir sehen wie der punktestand ist und auch wer am Zug ist, müssen wir das HTML mit den<br>
+richtigen Daten aktualisieren. Das machen wir in einer eigenen Funktion, damit<br>
+man diese immer wen etwas geändert hat aufrufen kann.<br>
+Im HTML sind jeweils schon Überschrifts-Tag's für den aktuellen<br>
+Player und den score vorhanden. Diese kannst du mit deren id selektieren.<br>
+Um den richtigen spieler anzuzeigen, kannst du eine neue Variable initialisieren und<br>
+mit Hilfe von einem If-Statement den korrekten Player hineinschreiben. Hier der code:</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateScreen</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">let</span> player = <span class="hljs-string">""</span>
+
+    <span class="hljs-keyword">if</span> (isPlayerOne) {
+        player = <span class="hljs-string">"1"</span>
+    } <span class="hljs-keyword">else</span> {
+        player = <span class="hljs-string">"2"</span>
+    }
+
+    <span class="hljs-comment">// Elemente updaten</span>
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"player"</span>).innerText = <span class="hljs-string">"Spieler*in "</span> + player + <span class="hljs-string">" ist am Zug."</span>
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"score"</span>).innerText = pointsPlayerOne + <span class="hljs-string">":"</span> + pointsPlayerTwo
+}
+</div></code></pre>
+<p>Nun musst du noch die <code>updateScreen</code> Funktion nach dem updaten der Punkte aufrufen.</p>
+<p>Jetzt kannst du dein fertiges Memory ausprobieren.</p>
+<h3 id="zusatz">Zusatz</h3>
+<p>Wenn du noch Zeit hast kannst du noch weitere Features programmieren.<br>
+Hier einige Vorschläge:</p>
+<ul>
+<li>Einen Knopf um ein neues Spiel zu starten</li>
+<li>Bilder statt Farben</li>
+<li>Variable Anzahl von Spieler*innen</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> playerPointer = <span class="hljs-number">0</span>
+<span class="hljs-keyword">let</span> playersPoints = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nextPlayer</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(playersPoints.length)
+    playerPointer += <span class="hljs-number">1</span>
+    <span class="hljs-keyword">if</span> (playersPoints.length &lt;= playerPointer) {
+        playerPointer = <span class="hljs-number">0</span>
+    }
+}
+
+</div></code></pre>
+
+</body>
+
+</html>
