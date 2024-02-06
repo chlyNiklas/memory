@@ -2,6 +2,27 @@
 
 Wir programmieren zusammen ein Memory.
 
+**Inhalt**
+
+- [Memory](#memory)
+  - [Spielanleitung](#spielanleitung)
+  - [Vorbereitung](#vorbereitung)
+    - [index.html](#indexhtml)
+    - [style.css](#stylecss)
+    - [index.js](#indexjs)
+  - [Das Spiel](#das-spiel)
+    - [Karten aufdecken](#karten-aufdecken)
+  - [Karten verdecken](#karten-verdecken)
+    - [Korrekte Paare aus dem Spiel entfernen](#korrekte-paare-aus-dem-spiel-entfernen)
+    - [Punkte zählen](#punkte-zählen)
+    - [Display aktualisieren](#display-aktualisieren)
+- [Zusatz](#zusatz)
+  - [Tips](#tips)
+    - [Einen Knopf um ein neues Spiel zu starten](#einen-knopf-um-ein-neues-spiel-zu-starten)
+    - [Bilder statt Farben](#bilder-statt-farben)
+    - [Variable Anzahl von Spieler\*innen](#variable-anzahl-von-spielerinnen)
+
+
 ## Spielanleitung
 
 Memory wird mit einer geraden Anzahl an Karten gespielt.
@@ -370,7 +391,7 @@ Nun musst du noch die ```updateScreen``` Funktion nach dem updaten der Punkte au
 
 Jetzt kannst du dein fertiges Memory ausprobieren.
 
-### Zusatz
+# Zusatz
 
 Wenn du noch Zeit hast kannst du noch weitere Features programmieren.
 Hier einige Vorschläge:
@@ -378,6 +399,46 @@ Hier einige Vorschläge:
  - Einen Knopf um ein neues Spiel zu starten
  - Bilder statt Farben
  - Variable Anzahl von Spieler\*innen
+
+## Tips
+
+### Einen Knopf um ein neues Spiel zu starten
+
+Mache eine Funktion in der **alle** Variablen auf ihren Standartwert gesetzt werden.
+
+Das Spielfeld kannst du folgendermassen lehrräumen:
+
+``` JavaScript
+document.getElementById("game").innerHTML = ""
+```
+
+### Bilder statt Farben
+
+Um Zufällige Bilder zu bekommen, kannst du "picsum.photos" benützen.
+
+``` html
+<img src="https://picsum.photos/seed/beispiel/200/200">
+```
+
+Bei beispiel kannst du etwas beliebiges hinschreiben z.B. eine Farbe oder so. Mit
+der gleichen URL kriegst du immer das gleiche Bild.
+
+Mit folgender Funktion kannst du eine bestimmte Anzahl an zufälligen zahlen erstellen die jeweils nur einmal
+vorkommen. Du kannst auch ein Minimum und Maximum angeben.
+
+``` JavaScript
+function distinctRandInts(min, max, count) {
+    const nums = new Set();
+    while (nums.size !== count) {
+        nums.add(Math.floor(Math.random() * (max-min)) + min);
+    }
+    return nums;
+}
+```
+
+### Variable Anzahl von Spieler\*innen
+
+So könnte man das speichern vom Spielstand ach angehen:
 
 ``` JavaScript
 let playerPointer = 0
@@ -391,4 +452,7 @@ function nextPlayer() {
     }
 }
 
+function pointForPlayer(playerPointer) {
+    playersPoints[playerPointer] += 1
+}
 ```

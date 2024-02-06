@@ -8,16 +8,13 @@ function restart() {
     // remove children
     document.getElementById("game").innerHTML = ""
 
-    const nums = new Set();
-    while (nums.size !== 12) {
-        nums.add(Math.floor(Math.random() * 800) + 100);
-    }
-    let imageIds = []
-    nums.forEach((num) => {
-        imageIds.push(num, num)
+    
+    let imageSeeds = []
+    distinctRandInts(100, 999, 12).forEach((num) => {
+        imageSeeds.push(num, num)
     })
     // Farben mischen
-    imageIds.sort((a, b) => 0.5 - Math.random())
+    imageSeeds.sort((a, b) => 0.5 - Math.random())
 
     selected = []
 
@@ -28,8 +25,8 @@ function restart() {
         playersPoints.push(0);
     }
 
-    for (let i = 0; i < imageIds.length; i++) {
-        const imageId = imageIds[i];
+    for (let i = 0; i < imageSeeds.length; i++) {
+        const seed = imageSeeds[i];
         // neues div (leeres Element) erstellen
         const div = document.createElement("div")
         // div ins html laden
@@ -37,10 +34,10 @@ function restart() {
 
         // definieren was auf Knopfdruck passiert
         div.onclick = (event) => {
-            if (selected.length < 2  && !selected.includes(div)) {
-                div.style.backgroundColor = `#${imageId}0`
+            if (selected.length < 2 && !selected.includes(div)) {
+                div.style.backgroundColor = `#${seed}0`
                 selected.push(div);
-                div.innerHTML = `<img src="https://picsum.photos/seed/${imageId}/200/200">`
+                div.innerHTML = `<img src="https://picsum.photos/seed/${seed}/200/200">`
 
                 game()
             }
@@ -101,4 +98,12 @@ function nextPlayer() {
     if (playersPoints.length <= playerPointer) {
         playerPointer = 0;
     }
+}
+
+function distinctRandInts(min, max, count) {
+    const nums = new Set();
+    while (nums.size !== count) {
+        nums.add(Math.floor(Math.random() * (max-min)) + min);
+    }
+    return nums;
 }

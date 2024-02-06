@@ -35,6 +35,7 @@
     - [For-Schleife](#for-schleife)
     - [For-Each-Schleife](#for-each-schleife)
   - [Funktionen](#funktionen)
+  - [Weiterführende Links](#weiterführende-links)
 
 
 ## Kommentare
@@ -276,3 +277,8 @@ function myFunction(p1, p2) {
 
 let result = myfunction(2, 4); // Funktion aufrufen und deren Resultat der Variable result zuweisen.
 ```
+
+## Weiterführende Links
+
+ - [W3-Schools - JavaScript](https://www.w3schools.com/js/)
+ - [mdn web docs - JavaScript](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics)
