@@ -14,13 +14,17 @@
     - [Input-Element](#input-element)
   - [Weiterführende Links](#weiterführende-links)
 
+<div style="page-break-after: always;"></div>
+
 ## Text
 
 ### Textabsätze
+
 ``` html
 <p> Lorem Ipsum</p>
 ```
-<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; box-shadow: 0px 0px 20px #000a;">
+
+<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <p>Lorem Ipsum </p>
 </div>
 
@@ -36,7 +40,7 @@
 <h5>Amir</h5>
 <h6>Consenter</h6>
 ```
-<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; box-shadow: 0px 0px 20px #000a;">
+<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
 <h1>Lorem</h1>
 <h2>Ipsum</h2>
 <h3>Dolor</h3>
@@ -53,7 +57,7 @@ Der  im ```<em></em>``` umschlossene Text soll hervorgehoben werden (emphasize) 
 ``` html
 <p> <strong>Lorem</strong> Ipsum <em>dolor</em></p>
 ```
-<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; box-shadow: 0px 0px 20px #000a;">
+<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <p> <strong>Lorem</strong> Ipsum <em>dolor</em></p>
 </div>
 
@@ -85,7 +89,7 @@ Der  im ```<em></em>``` umschlossene Text soll hervorgehoben werden (emphasize) 
 </ol>
 ```
 
-<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; box-shadow: 0px 0px 20px #000a;">
+<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <ul>
         <li>Das</li>
         <li>ist</li>
@@ -111,7 +115,7 @@ Fügt einen Link ein, das Attribut ```href``` (Hyperreference) muss vorhanden se
 ``` html
 <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared">my cool vid</a>
 ```
-<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; box-shadow: 0px 0px 20px #000a;">
+<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared">my cool vid</a>
 </div>
 
@@ -122,7 +126,7 @@ Fügt ein Bild in das HTML-Dokument ein, das Attribut src (source, Quelle) muss 
 ``` html
 <img src="https://picsum.photos/seed/beispiel/200/200">
 ```
-<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; box-shadow: 0px 0px 20px #000a;">
+<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <img src="https://picsum.photos/seed/beispiel/200/200">
 </div>
 
@@ -144,7 +148,7 @@ function myFunction() {
 }
 </script>
 ```
-<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; box-shadow: 0px 0px 20px #000a;">
+<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
 <button onclick="myFunction()">Klick mich!</button>
 
 <script>
@@ -173,7 +177,7 @@ function myFunction() {
 <label>Text</label><br>
 <input type="text"><br>
 ```
-<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; box-shadow: 0px 0px 20px #000a;">
+<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <label>Checkbox</label><br>
     <input type="checkbox"><br>
     <label>Color</label><br>
@@ -191,6 +195,7 @@ function myFunction() {
 </div>
 
 Für mehr infos klicke [hier](https://www.w3schools.com/html/html_forms.asp).
+
 ## Weiterführende Links
 
  - [W3-Schools - HTML](https://www.w3schools.com/html/default.asp)

@@ -37,6 +37,7 @@
   - [Funktionen](#funktionen)
   - [Weiterführende Links](#weiterführende-links)
 
+<div style="page-break-after: always;"></div>
 
 ## Kommentare
 Nebst dem "normalen" Code, können auch Kommentare geschrieben werden. Es gibt ein- und mehrzeilige Kommentare. Code, welcher auskommentiert ist, wird nicht als Code behandelt und wird deshalb auch nicht durchlaufen. 

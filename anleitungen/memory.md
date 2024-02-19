@@ -22,6 +22,7 @@ Wir programmieren zusammen ein Memory.
     - [Bilder statt Farben](#bilder-statt-farben)
     - [Variable Anzahl von Spieler\*innen](#variable-anzahl-von-spielerinnen)
 
+<div style="page-break-after: always;"></div>
 
 ## Spielanleitung
 
@@ -67,7 +68,7 @@ Beispiel:
 <button>Ich bin ein Knopf</button>
 ```
 
-<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; box-shadow: 0px 0px 20px #000a;">
+<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <h1>Ich bin eine Überschrift!</h1>
     <h2>Ich bin eine kleinere Überschrift!</h2>
     <p>Ich bin ein Paragraph<p>
@@ -121,7 +122,7 @@ h1 {
 
 Dann sieht unser html so aus:
 
-<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; box-shadow: 0px 0px 20px #000a;">
+<div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <h1 style="color: red">Spieler*in 1 ist am Zug.</h1>
     <h2>0 : 0</h2>
     <div></div>
