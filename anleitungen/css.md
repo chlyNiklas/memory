@@ -16,9 +16,9 @@
 
 ## Aufbau
 
-In CSS schreiben wir Regeln zum Aussehen von unserem Html.
-Dazu schreiben wir Rules. Diese bestehen jeweils aus einem selector und
-1 bis mehrere properties und deren values.
+In CSS schreiben wir Regeln zum Design von unserem HTML.
+Dazu schreiben wir Rules. Diese bestehen jeweils aus einem Selector und
+1 bis mehrere Properties und deren Values.
 
 ``` 
 selector {
@@ -29,12 +29,12 @@ selector {
 
 ## CSS ins html einbinden
 
-Es gibt 3 verschieden Wege CSS in html einzubinden.
+Es gibt 3 verschieden Wege CSS in HTML einzubinden.
 
 ### Inline CSS
 
-Der erste von diesen Wegen ist inline-CSS. Wie es der Namen vermuten lässt,
-schreiben wir unser css gerade im Html.
+Der erste von diesen Wegen ist inline-CSS. Wie es der Name vermuten lässt,
+schreiben wir unser CSS gerade im HTML.
 
 ``` html
 <p style="color: red">Lorem Ipsum</p>
@@ -45,7 +45,7 @@ schreiben wir unser css gerade im Html.
 
 ### style tags
 
-Wir können das CSS auch in einen ```<style></style>```-Tag schreiben.
+Wir können das CSS auch in einen `<style></style>`-Tag schreiben.
 
 ``` html
 <style>
@@ -67,7 +67,7 @@ Wir können das CSS auch in einen ```<style></style>```-Tag schreiben.
 ### CSS File
 
 Das CSS kann auch in ein separates Dokument geschrieben werden.
-Dan müssen wir aber im head vom html auf das CSS verlinken.
+Dan müssen wir aber im Head vom HTML auf das CSS verlinken.
 
 CSS:
 
@@ -100,9 +100,9 @@ HTML:
 
 ### Tag Selektoren
 
-Der wohl einfachste Selektor ist der Tag-Selektor mit diesem kannst du **alle** Elemente von
-einem Typ auswählen. Dafür schreibst du einfach den Namen des tags vor die geschweiften Klammern
-(```{}```), so wie im beispiel oben mit den paragraphen:
+Der wohl einfachste Selektor ist der Tag-Selektor. Mit diesem kannst du **alle** Elemente von
+einem Typ auswählen. Dafür schreibst du einfach den Namen des Tags vor die geschweiften Klammern
+(`{}`), so wie im Beispiel oben mit den Paragraphen:
 
 ``` css
 p {
@@ -136,9 +136,9 @@ button {
 
 ### Class Selektoren
 
-Manchmal wollen wir styles nicht auf alle gleichen Elemente anwenden sondern nur auf bestimmte, die
-wir z.B. hervorheben wollen. Dafür können wir class Selektoren brauchen. Wir wiesen eine den html Elementen
-die wir selektieren wollen eine klasse zu z.B. rot (```class="rot"```). Um diese nun in unserem css auszuwählen, schreiben wir vor die geschweiften Klammern den Klassennamen mit einem Punkt vor dran:
+Manchmal wollen wir Styles nicht auf alle gleichen Elemente anwenden sondern nur auf bestimmte, die
+wir z.B. hervorheben wollen. Dafür können wir Class Selektoren brauchen. Wir weisen den HTML Elementen,
+die wir selektieren wollen eine Klasse zu, z.B. rot (`class="rot"`). Um diese nun in unserem CSS auszuwählen, schreiben wir vor die geschweiften Klammern den Klassennamen mit einem Punkt vor dran:
 
 ``` css
 .rot {

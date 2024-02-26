@@ -33,13 +33,13 @@ Alle Karten werden vermischt und umgedreht auf einem Tisch ausgebreitet, so dass
 Farben nicht sieht.
 Ein\*e Spieler\*in dreht zwei Kärtchen nacheinander um.
 Wenn die beiden zueinander passen, darf er/sie noch einmal 2 umdrehen.
-Wenn die Karten aber nicht zusammen passen ist die nächste person dran.
+Wenn die Karten aber nicht zusammen passen ist die nächste Person dran.
 
 Gewonnen hat, wer am meisten Paare gefunden hat.
 
 ## Vorbereitung
 
-Erstelle auf dem Desktop (oder einem Ordner deiner Wahl) ein Order namens: "memory"
+Erstelle auf dem Desktop (oder in einem Ordner deiner Wahl) einen Order namens: "memory"
 In diesem erstellst du folgende Dateien:
 
  - index.html
@@ -56,8 +56,8 @@ Wikipedia definiert HTML so:
 > wie Texte mit Hyperlinks, Bildern und anderen Inhalten. HTML-Dokumente sind die Grundlage des World Wide Web und 
 > werden von Webbrowsern dargestellt.
 
-Die Elemente die im Browser angezeigt werden sollen, werden in den sogenannten Tags definiert.
-Tags welche Inhalt haben können wie z.B. Knöpfe, Überschriften oder Paragraphen, werden geöffnet (```<tag>```) und geschlossen (```</tag>```).
+Die Elemente, die im Browser angezeigt werden sollen, werden in den sogenannten Tags definiert.
+Tags, welche Inhalt haben können, wie z.B. Knöpfe, Überschriften oder Paragraphen, werden geöffnet (```<tag>```) und geschlossen (```</tag>```).
 
 Beispiel:
 
@@ -95,11 +95,11 @@ Kopiere nun folgenden Code in dein ```index.html```:
 </html>
 ```
 
-Wenn du dein ```index.html``` nun im browser öffnest, solltest du eine Überschrift die sagt wer am Zug ist sehen, so wie der Punktestand.
+Wenn du dein ```index.html``` nun im browser öffnest, solltest du eine Überschrift sehen, die sagt wer am Zug ist, so wie den Punktestand.
 
 ### style.css
 
-Damit unser spiel auch gut aussieht, haben wir CSS. Mit CSS kannst du das Aussehen von deinem Spiel bestimmen. Dafür kannst du Regeln für das darstellen vom HTML machen - so genannte rules.
+Damit unser Spiel auch gut aussieht, haben wir CSS. Mit CSS kannst du das Aussehen von deinem Spiel bestimmen. Dafür kannst du Regeln für das Darstellen vom HTML machen - so genannte Rules.
 Diese sind folgendermassen aufgebaut:
 
 ```
@@ -109,10 +109,10 @@ Diese sind folgendermassen aufgebaut:
     ...
 }
 ```
-Ein Selektor wäre z.B ```h1```. Damit würde dann die Regel auf alle grossen Überschriften zutreffen.
+Ein Selektor wäre z.B. ```h1```. Damit würde dann die Regel auf alle grossen Überschriften zutreffen.
 Ein Beispiel fü eine Eigenschaft ist die Farbe: ```color: red```
 
-Also wenn wir alle grossen Überschriften rot haben wollen müssen wir folgende Regel schreiben:
+Wenn wir also alle grossen Überschriften rot haben wollen, müssen wir folgende Regel schreiben:
 
 ``` css
 h1 {
@@ -120,7 +120,7 @@ h1 {
 }
 ```
 
-Dann sieht unser html so aus:
+Dann sieht unser HTML so aus:
 
 <div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <h1 style="color: red">Spieler*in 1 ist am Zug.</h1>
@@ -153,7 +153,7 @@ Nun kannst du folgendes CSS in den ```style.css``` kopieren:
 
 ### index.js
 
-Im ```index.js``` ist die Logik für das Spiel gespeichert. Wir benötigen es, damit die Memory-Karten gemischt werden oder um die Punkte an zu zeigen.
+Im ```index.js``` ist die Logik für das Spiel gespeichert. Wir benötigen dieses File, damit die Memory-Karten gemischt werden oder um die Punkte anzuzeigen.
 
 Wikipedia definiert JavaScript so:
 
@@ -180,7 +180,7 @@ for (let i = 0; i < COLORS.length; i++) {
     // neues div (leeres Element) erstellen
     const div = document.createElement("div")
 
-    // div ins html laden
+    // div ins HTML laden
     document.getElementById("game").appendChild(div)
 
     //Todo 00
@@ -192,9 +192,9 @@ for (let i = 0; i < COLORS.length; i++) {
 // Todo 02
 ```
 
-Wenn du nun ```index.html``` in einem browser deiner Wahl öffnest, solltest du 16 Memory-Karten sehen.
-Falls das nicht der fall sein sollte, überprüfe ob alle Dokumente im selben Ordner
-sind und ob alle imports im HTML hast (für JavaScript und CSS).
+Wenn du nun ```index.html``` in einem Browser deiner Wahl öffnest, solltest du 16 Memory-Karten sehen.
+Falls das nicht der Fall sein sollte, überprüfe ob alle Dokumente im selben Ordner
+sind und ob du alle Imports im HTML hast (für JavaScript und CSS).
 
 ## Das Spiel
 ### Karten aufdecken
@@ -202,7 +202,7 @@ sind und ob alle imports im HTML hast (für JavaScript und CSS).
 Damit wir das Memory überhaupt spielen können, muss man die Karten umdrehen können. 
 Dafür müssen wir, wenn die Karte angeklickt wird, die richtige Farbe zu den Styles hinzufügen.
 
-Dies kannst den ```//ToDo 00``` im ```index.js``` Kommentar mit folgendem Code ersetzen:
+Du kannst den ```//ToDo 00``` im ```index.js``` Kommentar mit folgendem Code ersetzen:
 
 ``` JS
 // definieren was auf Knopfdruck passiert
@@ -210,30 +210,30 @@ div.onclick = (event) => {
     //ToDo 00
 }
 ```
-In diesem Codestück weist du der ```onclick``` eigenschaft eine Funktion zu.
-Da dieseFunktion keinen Namen braucht brauchen wir die sogenannte Lambda-Schreibweise.
-In den Klammern, definieren wir die Parameter (werte) die der Methode mitgegeben werden.
-In diesem fall ist das das Klickevent. Mit dem Pfeil weisen wir auf die Aktionen die 
-Ausgeführt werden sollen. Diese sind inzwischen geschweiften Klammern.
+In diesem Codestück weist du der ```onclick``` Eigenschaft eine Funktion zu.
+Da diese Funktion keinen Namen braucht, brauchen wir die sogenannte Lambda-Schreibweise.
+In den Klammern definieren wir die Parameter (Werte), die der Methode mitgegeben werden.
+In diesem Fall ist das das Klickevent. Mit dem Pfeil weisen wir auf die Aktionen, die 
+Ausgeführt werden sollen. Diese sind zwischen geschweiften Klammern.
 
 Innerhalb der geschweiften Klammern müssen wir nun die Hintergrundfarbe einstellen.
-Dafür hat das ```div``` die Property ```style```. Diese können wir mit einem Punkt
-wie gefolgt anwählen: ```div.style```. Um die hintergrundfarbe zu ändern müssen wir die
-Property ```backgroundColor``` der Property ```style``` verändern. Wir setzen sie auf die Farbe des ```div```'s mit folgendem Code:
+Dafür hat das ```div``` das Property ```style```. Dieses können wir mit einem Punkt
+wie gefolgt anwählen: ```div.style```. Um die Hintergrundfarbe zu ändern, müssen wir das
+Property ```backgroundColor``` des Property ```style``` verändern. Wir setzen es auf die Farbe des ```div```'s mit folgendem Code:
 
 ``` JS
 div.style.backgroundColor = color
 ```
 
-Nun sollten sich die Memory-Karten, wenn du im Browser auf sie klickst, sich "umdrehen" bzw. jeweils ihre Farbe anzeigen.
+Nun sollten sich die Memory-Karten, wenn du im Browser auf sie klickst, "umdrehen" bzw. jeweils ihre Farbe anzeigen.
 
 ## Karten verdecken
 
 Damit man nicht in einem Zug alle Karten aufdecken kann, müssen wir die Anzahl von
-Karten die man aufdecken darf auf 2 begrenzen. Dafür stellen wir den "Aufdeck-Code"
+Karten, die man aufdecken darf, auf 2 begrenzen. Dafür stellen wir den "Aufdeck-Code"
 in ein If-Statement. In diesem wird dann geprüft, ob weniger als 2 Karten umgedreht sind.
-Damit wir wissen wie viele Karten überhaupt umgedreht sind, fügen wir die Karte beim 
-Aufdecken dem ```selected``` array hinzu.
+Damit wir wissen, wie viele Karten überhaupt umgedreht sind, fügen wir die Karte beim 
+Aufdecken dem ```selected``` Array hinzu.
 
 Das machen wir mit folgendem Code:
 
@@ -246,10 +246,10 @@ if (selected.length < 2  && !selected.includes(div)) {
 }
 ```
 
-Wenn du nun probierst alle Karten aufzudecken, geht das nicht. Nach 2 Karten ist Fertig.
-Da mit sich die Karten wieder zudecken, braucht es noch ein wenig mehr Logik.
-Nämlich müssen wir wenn jeweils 2 Karten aufgedeckt sind, diese wieder zudecken.
-Damit man aber sieht welche Farbe die 2te Karte hat, brauchen wir eine kleine Verzögerung.
+Wenn du nun probierst alle Karten aufzudecken, geht das nicht. Nach 2 Karten ist fertig.
+Damit sich die Karten wieder zudecken, braucht es noch ein wenig mehr Logik.
+Nämlich müssen wir, wenn jeweils 2 Karten aufgedeckt sind, diese wieder zudecken.
+Damit man aber sieht, welche Farbe die 2te Karte hat, brauchen wir eine kleine Verzögerung.
 
 Damit der Code leserlich bleibt, lagern wir die allgemeine Spiellogik in eine eigene Funktion
 aus. Ersetze ```ToDo 01``` mit folgendem Code:
@@ -267,7 +267,7 @@ function game() {
 }
 ```
 
-Rufe nun die Funktion innerhalb vom ```onclick``` auf das sollte dann so aus sehen:
+Rufe nun die Funktion innerhalb vom ```onclick``` auf. Das sollte dann so aus sehen:
 
 ``` JavaScript
 div.onclick = (event) => {
@@ -283,7 +283,7 @@ div.onclick = (event) => {
 ```
 
 Damit die Karten dann wirklich umgedreht werden, müssen wir innerhalb der ```game``` Funktion 
-beim ToDo die Farben der div's in der ```selected``` liste noch zurück setzten und diese dan
+beim ToDo die Farben der div's in der ```selected``` Liste noch zurück setzten und diese dan
 anschliessend leeren. Das kannst du mit folgendem Code machen:
 
 ``` JavaScript
@@ -297,11 +297,11 @@ selected = []
 
 ### Korrekte Paare aus dem Spiel entfernen
 
-Um zu erkenn en ob zwei gleiche Karten aufgedeckt wurden, müssen wir nur überprüfen,
-ob deren Farbe die selbe ist. Das können wir ganz einfach mit einem If-Statement machen.
+Um zu erkennen, ob zwei gleiche Karten aufgedeckt wurden, müssen wir nur überprüfen,
+ob deren Farbe die Selbe ist. Das können wir ganz einfach mit einem If-Statement machen.
 Dieses setzen wir um das verdecken der Karten.
-Wir schauen ob die Hintergrundfarbe des div's an position 0 des ```selected``` Arrays die
-selbe ist wie die des div's an position 1. das kannst du mit folgendem If-Statement machen:
+Wir schauen, ob die Hintergrundfarbe des div's an Position 0 des ```selected``` Arrays die
+Selbe is, wie die des div's an Position 1. Das kannst du mit folgendem If-Statement machen:
 
 ``` JavaScript
 // überprüfen, ob es zwei gleiche Karten sind
@@ -312,20 +312,20 @@ if (selected[0].style.backgroundColor === selected[1].style.backgroundColor) {
 }
 ```
 
-Verschiebe nun das umdrehen der Karten in den ```else``` Teil des If-Statements.
-Im ```if``` Teil, kannst du nun den code fürs entfernen einfügen:
+Verschiebe nun das Umdrehen der Karten in den ```else``` Teil des If-Statements.
+Im ```if``` Teil, kannst du nun den Code fürs Entfernen einfügen:
 
 ``` JavaScript
 // Karten deaktivieren
-.forEach((div) => {
-    // hintergrund Farbe der Karte auf transparent
+selected.forEach((div) => {  
+    // Hintergrundfarbe der Karte auf transparent
     div.style.backgroundColor = "transparent"
     // onclick entfernen
     div.onclick = null;
 })
 ```
 
-Nun sollten korrekte paare verschwinden. Probier's doch mal aus!
+Nun sollten korrekte Paare verschwinden. Probier's doch mal aus!
 
 
 ### Punkte zählen
@@ -339,7 +339,7 @@ let pointsPlayerOne = 0;
 let pointsPlayerTwo = 0;
 ```
 
-Diese kannst du am anfangs des JavaScript files initialisieren.  
+Diese kannst du am Anfang des JavaScript Files initialisieren.  
 
 Jedes Mal, wenn nun ein Player 2 gleiche Karten aufdeckt, rechnen wir die entsprechende
 Variable + 1:
@@ -360,17 +360,17 @@ auf das Gegenteil von ```isPlayerOne``` setzen:
 isPlayerOne = !isPlayerOne
 ```
 
-Das machen wir jedes mal wenn ein Player 2 unterschiedliche Karten aufgedeckt hat.
+Das machen wir jedes Mal, wenn ein Player 2 unterschiedliche Karten aufgedeckt hat.
 
 ### Display aktualisieren
 
-Damit wir sehen wie der punktestand ist und auch wer am Zug ist, müssen wir das HTML mit den
+Damit wir sehen, wie der Punktestand ist und auch wer am Zug ist, müssen wir das HTML mit den
 richtigen Daten aktualisieren. Das machen wir in einer eigenen Funktion, damit
-man diese immer wen etwas geändert hat aufrufen kann.
-Im HTML sind jeweils schon Überschrifts-Tag's für den aktuellen
-Player und den score vorhanden. Diese kannst du mit deren id selektieren. 
-Um den richtigen spieler anzuzeigen, kannst du eine neue Variable initialisieren und
-mit Hilfe von einem If-Statement den korrekten Player hineinschreiben. Hier der code:
+man diese immer, wenn etwas geändert hat, aufrufen kann.
+Im HTML sind jeweils schon Überschriften-Tag's für den aktuellen
+Player und den Score vorhanden. Diese kannst du mit deren Id selektieren. 
+Um den richtigen Spieler anzuzeigen, kannst du eine neue Variable initialisieren und
+mit Hilfe von einem If-Statement den korrekten Player hineinschreiben. Hier der Code:
 
 ``` JavaScript
 function updateScreen() {
@@ -388,7 +388,7 @@ function updateScreen() {
 }
 ```
 
-Nun musst du noch die ```updateScreen``` Funktion nach dem updaten der Punkte aufrufen.
+Nun musst du noch die ```updateScreen``` Funktion nach dem Updaten der Punkte aufrufen.
 
 Jetzt kannst du dein fertiges Memory ausprobieren.
 
@@ -407,7 +407,7 @@ Hier einige Vorschläge:
 
 Mache eine Funktion in der **alle** Variablen auf ihren Standartwert gesetzt werden.
 
-Das Spielfeld kannst du folgendermassen lehrräumen:
+Das Spielfeld kannst du folgendermassen leerräumen:
 
 ``` JavaScript
 document.getElementById("game").innerHTML = ""
@@ -415,16 +415,16 @@ document.getElementById("game").innerHTML = ""
 
 ### Bilder statt Farben
 
-Um Zufällige Bilder zu bekommen, kannst du "picsum.photos" benützen.
+Um zufällige Bilder zu bekommen, kannst du "picsum.photos" benützen.
 
 ``` html
 <img src="https://picsum.photos/seed/beispiel/200/200">
 ```
 
-Bei beispiel kannst du etwas beliebiges hinschreiben z.B. eine Farbe oder so. Mit
+Bei Beispiel kannst du etwas Beliebiges hinschreiben z.B. eine Farbe oder so. Mit
 der gleichen URL kriegst du immer das gleiche Bild.
 
-Mit folgender Funktion kannst du eine bestimmte Anzahl an zufälligen zahlen erstellen die jeweils nur einmal
+Mit folgender Funktion kannst du eine bestimmte Anzahl an zufälligen Zahlen erstellen, die jeweils nur einmal
 vorkommen. Du kannst auch ein Minimum und Maximum angeben.
 
 ``` JavaScript
@@ -439,7 +439,7 @@ function distinctRandInts(min, max, count) {
 
 ### Variable Anzahl von Spieler\*innen
 
-So könnte man das speichern vom Spielstand ach angehen:
+So könnte man das Speichern vom Spielstand angehen:
 
 ``` JavaScript
 let playerPointer = 0

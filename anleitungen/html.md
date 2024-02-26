@@ -51,8 +51,8 @@
 
 ### Hervorhebungen
 
-Der  im ```<strong></strong>``` umschlossene Text soll stark hervorgehoben werden und wird in der Regel fett dargestellt
-Der  im ```<em></em>``` umschlossene Text soll hervorgehoben werden (emphasize) und wird in der Regel kursiv dargestellt
+Der  im `<strong></strong>` umschlossene Text soll stark hervorgehoben werden und wird in der Regel fett dargestellt.
+Der  im `<em></em>` umschlossene Text soll hervorgehoben werden (emphasize) und wird in der Regel kursiv dargestellt.
 
 ``` html
 <p> <strong>Lorem</strong> Ipsum <em>dolor</em></p>
@@ -64,11 +64,11 @@ Der  im ```<em></em>``` umschlossene Text soll hervorgehoben werden (emphasize) 
 ### Listen
 
 
-```<ul></ul>``` Liste mit Punkten als Aufzählungszeichen – kann nur in Verbindung mit ```<li>```-Elementen verwendet werden.
+`<ul></ul>` Liste mit Punkten als Aufzählungszeichen – kann nur in Verbindung mit `<li>`-Elementen verwendet werden.
 
-```<ol></ol>``` Nummerierte Liste – kann nur in Verbindung mit ```<li>```-Elementen verwendet werden.
+`<ol></ol>` Nummerierte Liste – kann nur in Verbindung mit `<li>`-Elementen verwendet werden.
 
-```<li></li>``` Einzelnes Listenelement – kann nur in Verbindung mit dem ```<ol>```- oder ```<ul>```-Element verwendet werden.
+`<li></li>` Einzelnes Listenelement – kann nur in Verbindung mit dem `<ol>`- oder `<ul>`-Element verwendet werden.
 
 ``` html
 <ul>
@@ -110,7 +110,7 @@ Der  im ```<em></em>``` umschlossene Text soll hervorgehoben werden (emphasize) 
 
 ### Links
 
-Fügt einen Link ein, das Attribut ```href``` (Hyperreference) muss vorhanden sein.
+Fügt einen Link ein, das Attribut `href` (Hyperreference) muss vorhanden sein.
 
 ``` html
 <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared">my cool vid</a>
@@ -134,8 +134,8 @@ Fügt ein Bild in das HTML-Dokument ein, das Attribut src (source, Quelle) muss 
 
 ### Knöpfe
 
-Mit einem Button element, kannst du den Benutzer eine Funktion aufrufen lassen.
-Das ```onclick``` definiert was auf Knopfdruck passiert.
+Mit einem Button Element, kannst du den Benutzer eine Funktion aufrufen lassen.
+Das `onclick` definiert was auf Knopfdruck passiert.
 
 ``` html
 <button onclick="myFunction()">Klick mich!</button>
@@ -194,7 +194,7 @@ function myFunction() {
     <input type="text"><br>
 </div>
 
-Für mehr infos klicke [hier](https://www.w3schools.com/html/html_forms.asp).
+Für mehr Infos klicke [hier](https://www.w3schools.com/html/html_forms.asp).
 
 ## Weiterführende Links
 
